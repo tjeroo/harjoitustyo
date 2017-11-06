@@ -1,16 +1,16 @@
-kaupunki;naapuri1 etäisyys;naapuri2 etäisyys;naapuri3 etäisyys
-Pori;Turku 140;Tampere 114;Vaasa 196;Helsinki 245
-Vaasa;Pori 196;Kokkola 121;Tampere 242;Kuopio 377;Jyväskylä 273
-Kokkola;Vaasa 121;Oulu 200;Tampere 319;Jyväskylä 242;Kajaani 250
-Oulu;Kokkola 200;Jyväskylä 340;Kajaani 182;Kuusamo 217;Rovaniemi 222
-Rovaniemi;Oulu 222;Kajaani 338;Kuusamo 193
-Kuusamo;Rovaniemi 193;Oulu 217;Kajaani 247
-Kajaani;Kuusamo 247;Rovaniemi 338;Oulu 182;Kokkola 250;Kuopio 171;Joensuu 232
-Joensuu;Kajaani 232;Kuopio 139;Lappeenranta 233
-Kuopio;Joensuu 139;Kajaani 171;Vaasa 377;Jyväskylä 147;Mikkeli 162
-Jyväskylä;Oulu 340;Kuopio 147;Mikkeli 119;Helsinki 269;Tampere 148;Vaasa 273;Kokkola 242
-Mikkeli;Kuopio 162;Lappeenranta 110;Helsinki 232;Jyväskylä 119
-Lappeenranta;Helsinki 230;Mikkeli 110;Joensuu 233
-Tampere;Kokkola 319;Jyväskylä 148;Helsinki 179 ;Turku 163;Pori 114
-Turku;Pori 140;Tampere 163;Helsinki 169
-Helsinki;Pori 245;Turku 169;Tampere 179;Jyväskylä 269;Mikkeli 232;Lappeenranta 230
+kaupunki,naapuri1 etäisyys,naapuri2 etäisyys,naapuri3 etäisyys,,,,
+Pori,Turku 140,Tampere 114,Vaasa 196,Helsinki 245,,,
+Vaasa,Pori 196,Kokkola 121,Tampere 242,Kuopio 377,Jyväskylä 273,,
+Kokkola,Vaasa 121,Oulu 200,Tampere 319,Jyväskylä 242,Kajaani 250,,
+Oulu,Kokkola 200,Jyväskylä 340,Kajaani 182,Kuusamo 217,Rovaniemi 222,,
+Rovaniemi,Oulu 222,Kajaani 338,Kuusamo 193,,,,
+Kuusamo,Rovaniemi 193,Oulu 217,Kajaani 247,,,,
+Kajaani,Kuusamo 247,Rovaniemi 338,Oulu 182,Kokkola 250,Kuopio 171,Joensuu 232,
+Joensuu,Kajaani 232,Kuopio 139,Lappeenranta 233,,,,
+Kuopio,Joensuu 139,Kajaani 171,Vaasa 377,Jyväskylä 147,Mikkeli 162,,
+Jyväskylä,Oulu 340,Kuopio 147,Mikkeli 119,Helsinki 269,Tampere 148,Vaasa 273,Kokkola 242
+Mikkeli,Kuopio 162,Lappeenranta 110,Helsinki 232,Jyväskylä 119,,,
+Lappeenranta,Helsinki 230,Mikkeli 110,Joensuu 233,,,,
+Tampere,Kokkola 319,Jyväskylä 148,Helsinki 179 ,Turku 163,Pori 114,,
+Turku,Pori 140,Tampere 163,Helsinki 169,,,,
+Helsinki,Pori 245,Turku 169,Tampere 179,Jyväskylä 269,Mikkeli 232,Lappeenranta 230,
