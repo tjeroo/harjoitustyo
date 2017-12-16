@@ -19,7 +19,6 @@ public class Mapper {
     public List<Vertex> mapVertexes(String csvFilePath) {
         List<String> lines = new ArrayList<String>();
         List<Vertex> ret = new ArrayList<Vertex>();
-        int vertexId = 1;
 
         lines = csvReader.csvReader(csvFilePath);
 
@@ -27,9 +26,8 @@ public class Mapper {
 
             String[] sourceRow = lines.get(i).split(",");   // read line and split data by ',' to array
 
-            Vertex newKaupunki = new Vertex(vertexId, sourceRow[0]);    // create vertex for Kaupunki
+            Vertex newKaupunki = new Vertex(i+1, sourceRow[0]);    // create vertex for Kaupunki
             ret.add(newKaupunki);  // add Kaupunki to list of vertexes
-            vertexId++;     // increase id
         }
         return ret;
     }
@@ -53,9 +51,8 @@ public class Mapper {
                         splitted[0].equals(vertexes.get(l).getName());
                         destination = vertexes.get(l);
 
-                        Edge newValimatka = new Edge(edgeId, source, destination, Integer.parseInt(splitted[1]));
+                        Edge newValimatka = new Edge(l+1, source, destination, Integer.parseInt(splitted[1]));
                         ret.add(newValimatka);
-                        edgeId++;
                     }
                 }
             }
