@@ -18,7 +18,7 @@ public class Main {
         csvReader.printSourceTest(sourceFilePath);
         */
 
-        /* Algorithm and printing test
+        /* ALGORITHM & PRINT TEST WITHOUT MAPPING
         List<Vertex> vertexes = new ArrayList<Vertex>(){};
         vertexes.add(new Vertex(1, "yks"));
         vertexes.add(new Vertex(2, "kaks"));
@@ -51,7 +51,7 @@ public class Main {
                 graph.getVertexes().get(endInput).getName() ));
 
         dijkstra = new DijkstraAlgorithm(graph);
-        dijkstra.execute(graph.getVertexes().get(startInput));   // execute algorithm for start city
+        dijkstra.execute(graph.getVertexes().get(startInput));   // execute algorithm for mininum distances
         LinkedList<Vertex> path = dijkstra.getPath(graph.getVertexes().get(endInput));  // get vertexes prior end/target
         Integer distance = dijkstra.getDistanceToTarget(graph.getVertexes().get(endInput));     // get distance to target
 
