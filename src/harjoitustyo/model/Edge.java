@@ -1,3 +1,5 @@
+package model;
+
 public class Edge {
 
     private final Integer id;

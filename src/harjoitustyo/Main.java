@@ -1,6 +1,7 @@
 import java.io.Console;
 import java.util.LinkedList;
 import java.util.Scanner;
+import model.*;
 
 public class Main {
 
@@ -9,7 +10,7 @@ public class Main {
         Graph graph;
         DijkstraAlgorithm dijkstra;
         Mapper mapper = new Mapper();
-        Scanner reader = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         String sourceFilePath = "C:\\temp\\KAUPUNKI.csv";
         System.out.println( "Starting...\nSource file location: " + sourceFilePath );
@@ -29,26 +30,27 @@ public class Main {
         }
 
         System.out.print("\nEnter number of starting city: ");
-        int startInput = reader.nextInt();
+        int startInput = scanner.nextInt();
         startInput = startInput - 1;     // minus one because computers
 
         System.out.print("Enter number of destination city: ");
-        int endInput = reader.nextInt();
+        int endInput = scanner.nextInt();
         endInput = endInput - 1;     // minus one because computers
 
         System.out.println(String.format("Start city %1$s, destination city %2$s",
                 graph.getVertexes().get(startInput).getName(),
                 graph.getVertexes().get(endInput).getName() ));
 
-        dijkstra = new DijkstraAlgorithm(graph);        // add graph into dijkstra
-        dijkstra.execute(graph.getVertexes().get(startInput));   // execute algorithm based on graph
+        dijkstra = new DijkstraAlgorithm(graph);
+        dijkstra.execute(graph.getVertexes().get(startInput));   // execute algorithm for start city
         LinkedList<Vertex> path = dijkstra.getPath(graph.getVertexes().get(endInput));  // target route
 
-        //System.out.println(String.format("Minimun destination given: %1$s", path.get(0).getName() ));
+        System.out.println(String.format("Minimun destination given: %1$s", path.get(0).getName() ));
         for (Vertex vertex : path) {
             System.out.println(vertex);
-        }   //TODO: kirjaa lähtöpisteen ja loppupisteen, vois muokata siten että printtaa kaikki välivaiheet
-        // TODO: ei laske etäisyyttä, se täytyy weightin mukana lisätä tonne
+        }   //TODO: kirjaa lï¿½htï¿½pisteen ja loppupisteen, vois muokata siten ettï¿½ printtaa kaikki vï¿½livaiheet
+        // TODO: ei laske etï¿½isyyttï¿½, se tï¿½ytyy weightin mukana lisï¿½tï¿½ tonne
+
 
     }
 }

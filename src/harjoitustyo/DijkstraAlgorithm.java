@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -7,6 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import model.*;
 
 public class DijkstraAlgorithm {
     private final List<Vertex> nodes;
@@ -29,11 +29,13 @@ public class DijkstraAlgorithm {
         predecessors = new HashMap<Vertex, Vertex>();
         distance.put(source, 0);
         unSettledNodes.add(source);
+        System.out.println("execute ");
         while (unSettledNodes.size() > 0) {
             Vertex node = getMinimum(unSettledNodes);
             settledNodes.add(node);
             unSettledNodes.remove(node);
             findMinimalDistances(node);
+            System.out.println("find minimal distances (node) " + node.getName());
         }
     }
 
@@ -108,12 +110,15 @@ public class DijkstraAlgorithm {
         Vertex step = target;
         // check if a path exists
         if (predecessors.get(step) == null) {
+            System.out.println("path doesn't exist");
             return null;
         }
         path.add(step);
+        System.out.println("path.add(step) " + step.getName());
         while (predecessors.get(step) != null) {
             step = predecessors.get(step);
             path.add(step);
+            System.out.println("path.add(step) while " + step.getName());
         }
         // Put it into the correct order
         Collections.reverse(path);

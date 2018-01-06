@@ -1,3 +1,5 @@
+package model;
+
 public class Vertex {
 
     final private Integer id;
