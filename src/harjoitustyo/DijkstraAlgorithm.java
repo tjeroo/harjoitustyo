@@ -29,13 +29,11 @@ public class DijkstraAlgorithm {
         predecessors = new HashMap<Vertex, Vertex>();
         distance.put(source, 0);
         unSettledNodes.add(source);
-        System.out.println("execute ");
         while (unSettledNodes.size() > 0) {
             Vertex node = getMinimum(unSettledNodes);
             settledNodes.add(node);
             unSettledNodes.remove(node);
             findMinimalDistances(node);
-            System.out.println("find minimal distances (node) " + node.getName());
         }
     }
 
@@ -101,27 +99,34 @@ public class DijkstraAlgorithm {
         }
     }
 
-    /*
-     * This method returns the path from the source to the selected target and
-     * NULL if no path exists
-     */
     public LinkedList<Vertex> getPath(Vertex target) {
         LinkedList<Vertex> path = new LinkedList<Vertex>();
         Vertex step = target;
+
         // check if a path exists
         if (predecessors.get(step) == null) {
             System.out.println("path doesn't exist");
             return null;
         }
         path.add(step);
-        System.out.println("path.add(step) " + step.getName());
         while (predecessors.get(step) != null) {
             step = predecessors.get(step);
             path.add(step);
-            System.out.println("path.add(step) while " + step.getName());
         }
         // Put it into the correct order
         Collections.reverse(path);
+
         return path;
     }
+
+    public Integer getDistanceToTarget(Vertex target) {
+        Integer ret;
+        if (distance.get(target) != null) {
+            ret = distance.get(target);
+        }
+        else
+            ret = -1;
+        return ret;
+    }
+
 }

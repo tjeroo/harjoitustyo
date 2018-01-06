@@ -1,6 +1,4 @@
-import java.io.Console;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 import model.*;
 
 public class Main {
@@ -12,13 +10,24 @@ public class Main {
         Mapper mapper = new Mapper();
         Scanner scanner = new Scanner(System.in);
 
-        String sourceFilePath = "C:\\temp\\KAUPUNKI.csv";
+        String sourceFilePath = "C:\\temp\\KAUPUNKI.csv";   // STATIC PATH TO THE SOURCE FILE
         System.out.println( "Starting...\nSource file location: " + sourceFilePath );
 
         /* CSV READER TEST PRINT
         CsvReader csvReader = new CsvReader();
         csvReader.printSourceTest(sourceFilePath);
-         */
+        */
+
+        /* Algorithm and printing test
+        List<Vertex> vertexes = new ArrayList<Vertex>(){};
+        vertexes.add(new Vertex(1, "yks"));
+        vertexes.add(new Vertex(2, "kaks"));
+        vertexes.add(new Vertex(3, "kol"));
+        List<Edge> edges = new ArrayList<Edge>(){};
+        edges.add(new Edge(1,vertexes.get(0), vertexes.get(1), 2));
+        edges.add(new Edge(1,vertexes.get(1), vertexes.get(2), 3));
+        graph = new Graph(vertexes,edges);
+        */
 
         graph = mapper.mapGraph(sourceFilePath);  // map source data into graph of vertexes and edges
 
@@ -43,14 +52,15 @@ public class Main {
 
         dijkstra = new DijkstraAlgorithm(graph);
         dijkstra.execute(graph.getVertexes().get(startInput));   // execute algorithm for start city
-        LinkedList<Vertex> path = dijkstra.getPath(graph.getVertexes().get(endInput));  // target route
+        LinkedList<Vertex> path = dijkstra.getPath(graph.getVertexes().get(endInput));  // get vertexes prior end/target
+        Integer distance = dijkstra.getDistanceToTarget(graph.getVertexes().get(endInput));     // get distance to target
 
-        System.out.println(String.format("Minimun destination given: %1$s", path.get(0).getName() ));
-        for (Vertex vertex : path) {
-            System.out.println(vertex);
-        }   //TODO: kirjaa l�ht�pisteen ja loppupisteen, vois muokata siten ett� printtaa kaikki v�livaiheet
-        // TODO: ei laske et�isyytt�, se t�ytyy weightin mukana lis�t� tonne
-
+        for (int i = 0; i < path.size(); i++) {
+            if(i > 0)
+                System.out.print(" - ");
+            System.out.print(path.get(i).getName());
+        }
+        System.out.println(String.format("\nKokonaismatka: %1$s", distance));
 
     }
 }
