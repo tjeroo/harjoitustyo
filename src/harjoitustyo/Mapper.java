@@ -7,21 +7,21 @@ public class Mapper {
     private CsvReader csvReader = new CsvReader();
 
     public Graph mapGraph(String csvFilePath) {
-        List<Vertex> vertexes;
-        List<Edge> edges;
+        // read csv input lines
+        List<String> lines = csvReader.csvReader(csvFilePath);
 
-        vertexes = mapVertexes(csvFilePath);
-        edges = mapEdges(csvFilePath, vertexes);
+        // create vertexes and edges
+        List<Vertex> vertexes = mapVertexes(lines);
+        List<Edge> edges = mapEdges(lines, vertexes);
 
-        Graph ret = new Graph(vertexes, edges);
-        return ret;
+        return new Graph(vertexes, edges);
     }
 
-    public List<Vertex> mapVertexes(String csvFilePath) {
-        List<String> lines;
+     /**
+     * Creates vertexes based on input line
+     */
+    public List<Vertex> mapVertexes(List<String> lines) {
         List<Vertex> ret = new ArrayList<Vertex>();
-
-        lines = csvReader.csvReader(csvFilePath);
 
         for ( int i = 0; i < lines.size(); i++ ) {    // read rows and create new Vertex for each Kaupunki
 
@@ -33,13 +33,14 @@ public class Mapper {
         return ret;
     }
 
-    public List<Edge> mapEdges(String csvFilePath, List<Vertex> vertexes) {
-        List<String> lines;
+    /**
+     * Creates edges based on input line
+     */
+    public List<Edge> mapEdges(List<String> lines, List<Vertex> vertexes) {
         List<Edge> ret = new ArrayList<Edge>();
         Vertex source;
         Vertex destination;
 
-        lines = csvReader.csvReader(csvFilePath);
         for ( int i = 0; i < lines.size(); i++ ) {
             String[] sourceRow = lines.get(i).split(",");   // read line and split data by ',' to array
             for ( int j = 0; j < vertexes.size(); j++ ) {
